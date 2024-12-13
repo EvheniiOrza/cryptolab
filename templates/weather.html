@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #87CEFA, #4682B4);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #FFD700;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #FFC107;
+            transform: scale(1.1);
+        }
+
+        .weather-info {
+            margin-top: 20px;
+        }
+
+        .weather-info h2 {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        .weather-info p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sun {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Forecast</h1>
+        <form method="get">
+            <input type="text" name="city" placeholder="Enter city" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather.error %}
+        <p style="color: red;">{{ weather.error }}</p>
+        {% elif weather %}
+        <div class="weather-info">
+            <h2>City: {{ weather.city }}</h2>
+            <img class="icon" src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Weather icon">
+            <p>Temperature: {{ weather.temperature }}°C</p>
+            <p>Feels Like: {{ weather.feels_like }}°C</p>
+            <p>Description: {{ weather.description }}</p>
+            <p>Humidity: {{ weather.humidity }}%</p>
+            <p>Pressure: {{ weather.pressure }} hPa</p>
+            <p>Wind: {{ weather.wind_speed }} m/s, {{ weather.wind_direction }}</p>
+            <p>Sunrise: {{ weather.sunrise }}</p>
+            <p>Sunset: {{ weather.sunset }}</p>
+        </div>
+        {% else %}
+        <p>No data available</p>
+        {% endif %}
+    </div>
+</body>
+</html>
