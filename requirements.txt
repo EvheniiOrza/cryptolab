@@ -1,3 +1,4 @@
+python==3.9.1
 asgiref==3.8.1
 blinker==1.9.0
 bokeh==3.6.2
