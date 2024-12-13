@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>{{ message|default:"Гра в процесі" }}</h1>
+    
+    {% if session.is_active %}
+        <p>Залишилось спроб: {{ session.attempts_left }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="number" name="guess" placeholder="Вгадай число" required>
+            <button type="submit">Вгадати</button>
+        </form>
+        {% if hint %}
+            <p>Підказка: {{ hint }}</p>
+        {% endif %}
+    {% else %}
+        {% if session.result == "Win" %}
+            <!-- Якщо користувач виграв -->
+            <h1 class="win-message">Ви виграли! 🎉</h1>
+            <p class="win-details">Правильне число було: <strong>{{ session.target_number }}</strong></p>
+        {% elif session.result == "Lose" %}
+            <!-- Якщо користувач програв -->
+            <h1 class="lose-message">Ви програли! 😞</h1>
+            <p class="lose-details">Правильне число було: <strong>{{ session.target_number }}</strong></p>
+        {% endif %}
+        <div class="actions">
+            <a href="{% url 'home' %}" class="btn btn-primary">На головну</a>
+            <a href="{% url 'profile' %}" class="btn btn-secondary">Перейти до профілю</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

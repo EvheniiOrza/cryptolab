@@ -1,122 +1,170 @@
 /* Загальні стилі */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa; /* Світло-сірий фон */
-    color: #343a40; /* Темно-сірий текст */
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Світлий фон */
     margin: 0;
     padding: 0;
 }
 
-/* Стилі навігаційної панелі */
-.navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-link {
-    color: #ffffff !important;
-    transition: color 0.3s;
-}
-
-.nav-link:hover {
-    color: #d4d4d4 !important;
-}
-
-/* Контейнер */
 .container {
+    margin-top: 20px;
+    max-width: 800px;
+    background: #ffffff; /* Білий фон для основного контенту */
     padding: 20px;
-    margin: auto;
-    max-width: 1200px;
-    background: #ffffff; /* Білий фон */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Заокруглені кути */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легка тінь */
 }
 
-/* Стилі кнопок */
-button {
-    background-color: #007bff;
+h1, h2, h3 {
+    color: #343a40; /* Темний текст */
+}
+
+p, li {
+    color: #495057; /* Трохи світліший текст */
+}
+
+/* Кнопки */
+button, .btn {
+    background-color: #007bff; /* Синій */
+    color: #fff;
     border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+button:hover, .btn:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
 }
 
-/* Футер */
-footer {
-    background-color: #e9ecef;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #6c757d;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-}
-
-footer a {
+a {
     color: #007bff;
     text-decoration: none;
 }
 
-footer a:hover {
+a:hover {
     text-decoration: underline;
 }
 
-/* Стилі заголовків */
-h1, h2, h3 {
-    font-weight: bold;
-    color: #007bff;
+/* Форми */
+form {
+    margin: 15px 0;
+}
+
+form input, form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Таблиці */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1rem;
+    margin-top: 15px;
 }
 
 table th, table td {
-    border: 1px solid #dee2e6;
-    padding: 8px;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
 }
 
 table th {
-    background-color: #007bff;
+    background-color: #f1f3f5; /* Легкий фон для заголовків таблиці */
+}
+
+table tr:hover {
+    background-color: #f8f9fa; /* Підсвічування рядка при наведенні */
+}
+
+/* Алерти */
+.alert {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container h1 {
+    color: #d9534f;
+}
+
+.container .message {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.actions .btn {
+    padding: 10px 20px;
+    text-decoration: none;
     color: white;
-    font-weight: bold;
+    border-radius: 5px;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+.actions .btn-primary {
+    background-color: #007bff;
+    border: none;
 }
 
-/* Мобільна адаптивність */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
+.actions .btn-secondary {
+    background-color: #6c757d;
+    border: none;
 }

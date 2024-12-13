@@ -1,1 +1,1 @@
-web: gunicorn payroll_system.wsgi:application
+web: gunicorn guessnumbergame.wsgi:application
