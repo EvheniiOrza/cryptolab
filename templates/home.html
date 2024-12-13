@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to WorkSmart Inc.</title>
+</head>
+<body>
+    <h1>Welcome to WorkSmart Inc.</h1>
+    <p>Check out your <a href="{% url 'profile' %}">personal statistics</a> or view the <a href="{% url 'dashboard_v1' %}">company dashboard (Plotly)</a> or <a href="{% url 'dashboard_v2' %}">company dashboard (Bokeh)</a>.</p>
+</body>
+</html>
+{% endblock %}

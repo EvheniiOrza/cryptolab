@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Дашборд v1</title>
+</head>
+<body>
+    <h1>Дашборд v1 - Графіки</h1>
+        <form method="get">
+            {{ form.as_p }}
+            <button type="submit">Apply Filters</button>
+        </form>
+
+        <div>
+            {% for graph in graphs %}
+                <div>{{ graph|safe }}</div>
+            {% endfor %}
+        </div>
+
+</body>
+</html>
+{% endblock %}

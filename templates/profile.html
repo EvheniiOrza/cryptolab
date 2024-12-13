@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome {{ employee.first_name }}</h1>
+    <p>Position: {{ employee.position }}</p>
+    
+    <h2>Work Times</h2>
+    <ul>
+        {% for time in work_times %}
+            <li>{{ time.work_date }}: {{ time.hours_worked }} hours</li>
+        {% empty %}
+            <li>No work times recorded.</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Salaries</h2>
+    <ul>
+        {% for salary in salaries %}
+            <li>{{ salary.payroll_period.start_date }} - {{ salary.payroll_period.end_date }}: {{ salary.base_salary }}</li>
+        {% empty %}
+            <li>No salaries recorded.</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Deductions</h2>
+    <ul>
+        {% for deduction in deductions %}
+            <li>{{ deduction.deduction_date }}: {{ deduction.amount }} ({{ deduction.deduction_type }})</li>
+        {% empty %}
+            <li>No deductions recorded.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
