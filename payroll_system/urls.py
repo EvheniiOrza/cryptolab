@@ -23,7 +23,5 @@ urlpatterns = [
     path('employee/', include('employees.urls')),
     path('api-token-auth/', views.obtain_auth_token),
     path('api-auth/', include('rest_framework.urls')),
-    path('myapp/', include('myapp.urls')),
-    path('api/', include('api.urls')),
     path('', include('profileapp.urls')),
 ]

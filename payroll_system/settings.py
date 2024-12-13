@@ -39,13 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'employees',
-    'myapp',
     'rest_framework',
     'rest_framework.authtoken',
-    'api',
-    'dpd_static_support',
-    'channels',
-    'django_plotly_dash',
     'profileapp',
 ]
 
