@@ -1,0 +1,25 @@
+<!-- templates/client_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client List</title>
+</head>
+<body>
+    <h1>List of Clients</h1>
+    <a href="{% url 'create_client' %}">Add New Client</a>
+    <ul>
+        {% for client in clients %}
+            <li>
+                {{ client.first_name }} {{ client.last_name }}
+                <a href="{% url 'get_client' client.id %}">View</a>
+                <a href="{% url 'update_client' client.id %}">Edit</a>
+                <form method="post" action="{% url 'delete_client' client.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

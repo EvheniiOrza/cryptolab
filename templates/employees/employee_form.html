@@ -1,0 +1,7 @@
+<h2>{% if form.instance.pk %}Редагувати{% else %}Додати{% endif %} працівника</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зберегти</button>
+</form>
+<a href="{% url 'employee_list' %}">Повернутися до списку</a>

@@ -1,0 +1,7 @@
+<h2>Видалити працівника</h2>
+<p>Ви дійсно хочете видалити {{ employee.first_name }} {{ employee.last_name }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Так, видалити</button>
+    <a href="{% url 'employee_detail' employee.pk %}">Скасувати</a>
+</form>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plotly Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard (Plotly)</h1>
+    <div>
+        <h2>Bar Chart</h2>
+        {{ bar_chart|safe }}
+    </div>
+    <div>
+        <h2>Pie Chart</h2>
+        {{ pie_chart|safe }}
+    </div>
+</body>
+</html>
